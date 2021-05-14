@@ -2,12 +2,12 @@ import { Mesh, BoxGeometry, TextureLoader, MeshBasicMaterial, BackSide } from '.
 
 class Materials {
     pictures = [
-        '/assets/texture/ft.jpg',
-        '/assets/texture/bk.jpg',
-        '/assets/texture/up.jpg',
-        '/assets/texture/dn.jpg',
-        '/assets/texture/rt.jpg',
-        '/assets/texture/lf.jpg',
+        'assets/texture/ft.jpg',
+        'assets/texture/bk.jpg',
+        'assets/texture/up.jpg',
+        'assets/texture/dn.jpg',
+        'assets/texture/rt.jpg',
+        'assets/texture/lf.jpg',
     ];
 
     constructor() {
