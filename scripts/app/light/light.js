@@ -1,17 +1,13 @@
-import { DirectionalLight } from '../../libs/three.js';
+import { DirectionalLight, AmbientLight } from '../../libs/three.js';
 
-export default class Light extends DirectionalLight {
+export default class Light {
     constructor() {
-        super('#e6f0ff');
-        this.position.set(-6, 14, 16);
-        this.castShadow = true;
+        this.ambientLight = new AmbientLight('#ffffff', 0.5);
 
-        this.shadow.camera.top = 2;
-        this.shadow.camera.bottom = -2;
-        this.shadow.camera.left = -2;
-        this.shadow.camera.right = 2;
+        this.directionalLight = new DirectionalLight('#ffffff');
+        this.directionalLight.position.set(-6, 12, 18);
+        this.directionalLight.castShadow = true;
 
-        this.shadow.camera.near = 0.1;
-        this.shadow.camera.far = 200;
+        this.list = [this.ambientLight, this.directionalLight];
     }
 }

@@ -1,4 +1,4 @@
-import { Scene as ThreeScene, CubeTextureLoader, Fog } from '../../libs/three.js';
+import { Scene as ThreeScene, Color, CubeTextureLoader, Fog } from '../../libs/three.js';
 
 class SceneTexture extends CubeTextureLoader {
     constructor() {
@@ -19,6 +19,6 @@ export default class Scene extends ThreeScene {
     constructor() {
         super();
         this.background = new SceneTexture().texture;
-        this.fog = new Fog('#3d5147', 0.01, 5000);
+        this.fog = new Fog('#b5e8ff', 0.1, 4000);
     }s
 }

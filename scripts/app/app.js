@@ -39,7 +39,7 @@ export default class Main {
         document.body.appendChild(this.renderer.domElement);
 
         // run other helpers
-        this.scene.add(...this.models.list, this.light);
+        this.scene.add(...this.models.list, ...this.light.list);
         this.controls.init(this.renderer.init);
         this.onresize();
 
