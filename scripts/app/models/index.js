@@ -1,7 +1,13 @@
-import Skybox from './skybox.js';
+import Box from './box.js';
+import Line from './line.js';
+import Platform from './platform.js';
 
 export default class Models {
     constructor() {
-        this.skybox = new Skybox();
+        this.box = new Box();
+        this.line = new Line();
+        this.platform = new Platform();
+
+        this.list = [this.platform, this.box];
     }
 }

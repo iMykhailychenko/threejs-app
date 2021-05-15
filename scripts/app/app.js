@@ -3,6 +3,7 @@ import Camera from './camera/camera.js';
 import Models from './models/index.js';
 import Controls from './controls/controls.js';
 import Renderer from './renderer/renderer.js';
+import Light from './light/light.js';
 
 export default class Main {
     static instance = null;
@@ -13,6 +14,7 @@ export default class Main {
         this.scene = new Scene();
         this.camera = new Camera();
         this.models = new Models();
+        this.light = new Light();
         this.renderer = new Renderer(this.scene, this.camera);
         this.controls = new Controls(this.camera, this.renderer.domElement);
     }
@@ -37,7 +39,7 @@ export default class Main {
         document.body.appendChild(this.renderer.domElement);
 
         // run other helpers
-        this.scene.add(this.models.skybox);
+        this.scene.add(...this.models.list, this.light);
         this.controls.init(this.renderer.init);
         this.onresize();
 
