@@ -9,9 +9,10 @@ export default class Renderer extends WebGLRenderer {
 
     size = () => {
         this.setSize(window.innerWidth, window.innerHeight);
-    }
+    };
 
     init = () => {
+        this.toneMappingExposure = 0.7458;
         this.render(this.scene, this.camera);
-    }
+    };
 }

@@ -4,6 +4,7 @@ import Models from './models/index.js';
 import Controls from './controls/controls.js';
 import Renderer from './renderer/renderer.js';
 import Light from './light/light.js';
+import Sky from './sky/sky.js';
 
 export default class Main {
     static instance = null;
@@ -11,10 +12,11 @@ export default class Main {
     constructor() {
         if (Main.instance) return Main.instance;
 
+        this.sky = new Sky();
         this.scene = new Scene();
+        this.light = new Light();
         this.camera = new Camera();
         this.models = new Models();
-        this.light = new Light();
         this.renderer = new Renderer(this.scene, this.camera);
         this.controls = new Controls(this.camera, this.renderer.domElement);
     }
@@ -39,7 +41,7 @@ export default class Main {
         document.body.appendChild(this.renderer.domElement);
 
         // run other helpers
-        this.scene.add(...this.models.list, ...this.light.list);
+        this.scene.add(...this.models.list, ...this.light.list, this.sky);
         this.controls.init(this.renderer.init);
         this.onresize();
 

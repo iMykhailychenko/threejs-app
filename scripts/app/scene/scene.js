@@ -18,7 +18,8 @@ class SceneTexture extends CubeTextureLoader {
 export default class Scene extends ThreeScene {
     constructor() {
         super();
-        this.background = new SceneTexture().texture;
-        this.fog = new Fog('#b5e8ff', 0.1, 4000);
-    }s
+        // this.background = new SceneTexture().texture;
+        this.background = new Color('#efefef');
+        this.fog = new Fog('#efefef', 100, 300);
+    }
 }
