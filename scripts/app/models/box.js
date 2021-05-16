@@ -1,8 +1,10 @@
-import { Mesh, BoxGeometry, MeshLambertMaterial } from '../../libs/three.js';
+import { Mesh, BoxGeometry, MeshToonMaterial } from '../../libs/three.js';
 
 export default class Box extends Mesh {
-    constructor() {
-        super(new BoxGeometry(50, 0.4, 5), new MeshLambertMaterial({ color: '#343434' }));
-        this.castShadow = true;
+    constructor(...params) {
+        super(new BoxGeometry(...params), new MeshToonMaterial({ color: '#9e445f' }));
+        this.position.set(0, 4, 0);
+        this.rotation.set(0, 0, -5);
+        this.castShadow = false;
     }
 }

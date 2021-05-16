@@ -12,7 +12,7 @@ export default class Renderer extends WebGLRenderer {
     };
 
     init = () => {
-        this.toneMappingExposure = 0.7458;
+        this.toneMappingExposure = 0.4;
         this.render(this.scene, this.camera);
     };
 }

@@ -1,3 +1,5 @@
+import { PMREMGenerator } from '../libs/three.js';
+
 import Scene from './scene/scene.js';
 import Camera from './camera/camera.js';
 import Models from './models/index.js';
@@ -12,13 +14,14 @@ export default class Main {
     constructor() {
         if (Main.instance) return Main.instance;
 
-        this.sky = new Sky();
         this.scene = new Scene();
         this.light = new Light();
         this.camera = new Camera();
         this.models = new Models();
         this.renderer = new Renderer(this.scene, this.camera);
         this.controls = new Controls(this.camera, this.renderer.domElement);
+        this.sky = new Sky();
+        this.pmremGenerator = new PMREMGenerator(this.renderer);
     }
 
     animate = () => {
@@ -42,6 +45,8 @@ export default class Main {
 
         // run other helpers
         this.scene.add(...this.models.list, ...this.light.list, this.sky);
+        this.scene.environment = this.pmremGenerator.fromScene(this.sky).texture;
+
         this.controls.init(this.renderer.init);
         this.onresize();
 
