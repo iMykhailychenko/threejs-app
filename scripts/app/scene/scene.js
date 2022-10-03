@@ -20,6 +20,6 @@ export default class Scene extends ThreeScene {
         super();
         // this.background = new SceneTexture().texture;
         this.background = new Color('#efefef');
-        this.fog = new Fog('#efefef', 100, 300);
+        this.fog = new Fog('#efefef', 50, 500);
     }
 }

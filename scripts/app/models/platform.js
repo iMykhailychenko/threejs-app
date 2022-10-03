@@ -2,7 +2,7 @@ import { Mesh, PlaneBufferGeometry, MeshPhongMaterial } from '../../libs/three.j
 
 export default class Platform extends Mesh {
     constructor() {
-        super(new PlaneBufferGeometry(1000, 1000), new MeshPhongMaterial({ color: '#e9e9e9', depthWrite: true }));
+        super(new PlaneBufferGeometry(5000, 5000), new MeshPhongMaterial({ color: '#183041', depthWrite: true }));
         this.rotation.x = -Math.PI / 2;
         this.receiveShadow = true;
     }
